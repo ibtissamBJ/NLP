@@ -1,0 +1,86 @@
+version: "3.1"
+
+actions:
+  - get_country_capital 
+  - action_weather_api
+  - utter_temp
+  - utter_city
+  - action_ask_help
+  
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thanks
+  - ask_capital
+  - weather
+  - city
+  - not_understood
+  - bot_ask
+entities:
+  - country
+responses:
+
+    
+  utter_greet:
+  - text: "Hey! How are you?"
+  utter_default:
+  - text: "Sorry, I'm not sure how to respond to that. Type 'help'for assistance."
+
+
+  utter_thanks:
+  - text: "You are welcome anytime.I am here to help you,you can type 'help' for assistance"
+
+  utter_ask_capital:
+  - text: "i will check the capital for you."
+
+  utter_capital:
+  - text: "the  capitale of {country} is {capital} ."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_help:
+  - text: "Welcome to our chatbot! I'm here to help you get information about country capitals and the current weather in different cities.\n
+
+            To get information about the capital of a country, you can ask questions like:\n
+              '- What is the capital of France?'\n
+              '- Can you tell me the capital of Spain?'\n
+
+            To get weather information in a city, you can ask, for example:\n
+            '- What's the weather like in Paris?'\n
+             '- Can you give me the weather forecast for New York?'\n'
+
+          If you need further assistance at any time, feel free to type 'help,' and I'll be here to guide you!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa.you can tap help to know how i can help you"
+  
+  utter_city:
+  - text: "Which city would you like to check for?"
+  - text: "Tell me the name of the city you want the weather for."
+  - text: "Please provide the name of the city you're interested in."
+  - text: "Which city would you like to check for?"
+  utter_temp:
+  - text: "The current temperature in {city} is {temp}°C."
+  - text: "The current temperature in {city} is {temp}°C."
+  - text: "Temperature right now in {city}: {temp}°C."
+  - text: "It's currently {temp} degrees Celsius in {city}."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
